@@ -78,7 +78,7 @@ def execute(path, cmd, uuid):
     xsl_filename = dom.getroot().getprevious().getprevious().parseXSL() # need to add error checking
     transform = ET.XSLT(xsl_filename)
     html = transform(dom)
-    html_file = open('%s.html' % filename, 'w')
+    html_file = open('%s.html' % filename, 'wb')
     html.write(html_file)
 
     print('[%s] HTML report generated (%s.html)' % (datetime.datetime.now(), filename))
