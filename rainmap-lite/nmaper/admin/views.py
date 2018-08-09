@@ -12,7 +12,7 @@ admin.site.register(models.NmapProfile)
 def clear_logs(request):
     """Clear admin activity logs if user has permissions"""
 
-    if not request.user.is_authenticated(): # should be applied to anything under /console
+    if not request.user.is_authenticated: # should be applied to anything under /console
         return redirect('login')
 
     if request.user.has_perm('admin.delete_logentry'):
